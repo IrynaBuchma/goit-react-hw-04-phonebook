@@ -29,13 +29,13 @@ export default function App() {
       number,
     };
 
-    contacts.some(contact => contact.name === name)
+    contacts.some(prevState => prevState.name === name)
       ? alert(`${name} is already in contacts`)
-      : setContacts([contact, ...contacts]);
+      : setContacts(prevState => [contact, ...prevState]);
   }
 
   const onContactDelete = (id) => {
-    setContacts(contacts.filter(contact => contact.id !== id ))
+    setContacts(contacts.filter(prevState => prevState.id !== id ))
   }
   
 
